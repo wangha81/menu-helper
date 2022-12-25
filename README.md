@@ -6,6 +6,15 @@ A support for ordering between Host and back kitchen
 - [Qwik](https://qwik.builder.io/) starter kit
 
 ## Demo
+```
+git clone https://github.com/wangha81/menu-helper
+cd menu-helper
+yarn
+yarn build
+yarn deploy
+```
+Then visit [http://localhost:3000/](http://localhost:3000/)
+
 ![image](./demo.gif)
 
 ## Deploy GCP ( cloud run )
