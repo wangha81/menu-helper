@@ -5,14 +5,14 @@ interface AProps {
   actionList: string[];
 }
 
-export const actions = ["加麵", "半斤", "一斤", "兩斤", "三斤", "四斤"];
+export const actions = ["加麵", "隔板", "半斤", "一斤", "兩斤", "三斤", "四斤", "不蔥"];
 
 export default component$(({ update$, actionList }: AProps) => {
   return (
     <div class="flex flex-row flex-wrap rounded-xl bg-gray-800 p-3 m-2">
       {actions.map((act) => {
         return (
-          <div class={`basis-1/3`}>
+          <div class={`basis-1/4`}>
             <input
               type="checkbox"
               class={`peer hidden`}
