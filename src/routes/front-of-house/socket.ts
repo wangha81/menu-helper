@@ -38,3 +38,9 @@ export const deprecateOrder = (o: Order) => {
   if (!_CLIENT.connected) return;
   _CLIENT.emit("deprocateOrder", o);
 };
+
+export const refreshOrder = () => {
+  if (!_CLIENT) return;
+  if (!_CLIENT.connected) return;
+  _CLIENT.emit("refreshOrder");
+};

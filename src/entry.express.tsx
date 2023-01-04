@@ -16,7 +16,13 @@ import { join } from "node:path";
 import compression from "compression";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { addOrder, deprocateOrder, finishOrder, syncOrder } from "./handlers";
+import {
+  addOrder,
+  deprocateOrder,
+  finishOrder,
+  syncOrder,
+  refreshOrder,
+} from "./handlers";
 
 // Directories where the static assets are located
 const distDir = join(fileURLToPath(import.meta.url), "..", "..", "dist");
@@ -59,6 +65,7 @@ io.on("connection", (socket) => {
   socket.on("finishOrder", finishOrder(socket));
   socket.on("deprocateOrder", deprocateOrder(socket));
   socket.on("syncOrder", syncOrder());
+  socket.on("refreshOrder", refreshOrder(socket));
 });
 
 // Constants

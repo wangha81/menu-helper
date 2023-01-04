@@ -33,3 +33,10 @@ export const syncOrder = () => {
   };
   return fn;
 };
+
+export const refreshOrder = (socket: Socket) => {
+  const fn = () => {
+    socket.broadcast.emit("refreshOrder");
+  };
+  return fn;
+};

@@ -8,7 +8,13 @@ import Meals, { meals } from "~/components/meals/meals";
 import Tables, { tableNums } from "~/components/tables/tables";
 import Adjust from "~/components/adjust/adjust";
 import OrdersBoard from "~/routes/front-of-house/orders-board";
-import { init, addOrder, getOrders, deprecateOrder } from "./socket";
+import {
+  init,
+  addOrder,
+  getOrders,
+  deprecateOrder,
+  refreshOrder,
+} from "./socket";
 import { Order } from "~/orders/types";
 
 export default component$(() => {
@@ -55,7 +61,7 @@ export default component$(() => {
       <div class={`flex flex-row w-full text-2xl mx-2 my-2 justify-center`}>
         <button
           class={
-            "w-11/12 text-zinc-100 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 mr-3 disabled:opacity-25"
+            "w-4/6 text-zinc-100 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 mr-3 disabled:opacity-25"
           }
           disabled={!ready.value}
           onClick$={async () => {
@@ -79,6 +85,17 @@ export default component$(() => {
           }}
         >
           送出
+        </button>
+        <button
+          disabled={!ready.value}
+          class={
+            "w-1/6 text-zinc-100 rounded-lg bg-gradient-to-r from-blue-400 to-pink-500 mr-3 disabled:opacity-25 flex justify-center"
+          }
+          onClick$={async () => {
+            refreshOrder();
+          }}
+        >
+          <img src="/images/bell.png" class={"object-scale-down w-12"} />
         </button>
       </div>
       <div>

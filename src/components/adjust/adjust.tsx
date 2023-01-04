@@ -5,7 +5,16 @@ interface AProps {
   actionList: string[];
 }
 
-export const actions = ["加麵", "隔板", "半斤", "一斤", "兩斤", "三斤", "四斤", "不蔥"];
+export const actions = [
+  "加麵",
+  "隔板",
+  "半斤",
+  "一斤",
+  "兩斤",
+  "三斤",
+  "四斤",
+  "不蔥",
+];
 
 export default component$(({ update$, actionList }: AProps) => {
   return (

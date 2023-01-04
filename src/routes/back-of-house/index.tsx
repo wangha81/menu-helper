@@ -35,24 +35,31 @@ export default component$(() => {
       await audio.value.play();
     };
 
-    // Init Event
-    client.on("addOrder", async () => {
+    const refreshOrder = async () => {
       const orders = await getOrders();
       ordersQueue.splice(0);
       if (!orders) return;
       while (orders.length > 0) {
         ordersQueue.push(orders.pop()!);
       }
-      try {
-        await playAlertSound();
-      } catch (e) {
-        console.error(e);
-      }
+    };
+
+    const updateOrder = async () => {
+      await refreshOrder();
+      await playAlertSound();
+    };
+
+    // Init Event
+    client.on("addOrder", async () => {
+      await updateOrder();
     });
     client.on("finishOrder", (payload: Order) => _removeOrder(payload));
     client.on("deprocateOrder", async (payload: Order) =>
       _removeOrder(payload)
     );
+    client.on("refreshOrder", async () => {
+      await updateOrder();
+    });
 
     // Init Order
     client.emit("syncOrder", (orders: Order[]) => {
@@ -72,7 +79,15 @@ export default component$(() => {
           muted.value = !muted.value;
         }}
       >
-        通知音 {muted.value ? "off" : "on"}
+        {/* 通知音 {muted.value ? "off" : "on"} */}
+        <img
+          src={
+            muted.value
+              ? "/images/volume-disable.png"
+              : "/images/volume-enable.png"
+          }
+          class={"object-scale-down w-12"}
+        />
       </button>
       <audio ref={audio} crossOrigin="anonymous" muted={muted.value}>
         <source src="/audios/noti.wav" type="audio/wav" />

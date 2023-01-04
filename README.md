@@ -3,9 +3,11 @@
 A support for ordering between Host and back kitchen
 
 ## Build stack
+
 - [Qwik](https://qwik.builder.io/) starter kit
 
 ## Demo
+
 ```
 git clone https://github.com/wangha81/menu-helper
 cd menu-helper
@@ -13,6 +15,7 @@ yarn
 yarn build
 yarn deploy
 ```
+
 Then visit [http://localhost:3000/](http://localhost:3000/)
 
 ![image](./demo.gif)
@@ -25,12 +28,12 @@ Then visit [http://localhost:3000/](http://localhost:3000/)
 ---
 
 ## Qwik starter
+
 - [Qwik Docs](https://qwik.builder.io/)
 - [Discord](https://qwik.builder.io/chat)
 - [Qwik GitHub](https://github.com/BuilderIO/qwik)
 - [@QwikDev](https://twitter.com/QwikDev)
 - [Vite](https://vitejs.dev/)
-
 
 ## Project Structure
 
@@ -97,4 +100,3 @@ yarn deploy
 ```
 
 Then visit [http://localhost:3000/](http://localhost:3000/)
-
