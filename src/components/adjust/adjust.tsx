@@ -1,8 +1,8 @@
-import { component$, PropFunction } from "@builder.io/qwik";
+import { component$, PropFunction } from "@builder.io/qwik"
 
 interface AProps {
-  update$?: PropFunction<(a: string[]) => void>;
-  actionList: string[];
+  update$?: PropFunction<(a: string[]) => void>
+  actionList: string[]
 }
 
 export const actions = [
@@ -14,7 +14,17 @@ export const actions = [
   "三斤",
   "四斤",
   "不蔥",
-];
+  "粗麵",
+  "細麵",
+  "加辣",
+  "素食",
+  "小半斤",
+  "不豆芽",
+  "不紅K",
+  "不青菜",
+  "煮軟",
+  "半筋半肉",
+]
 
 export default component$(({ update$, actionList }: AProps) => {
   return (
@@ -36,22 +46,22 @@ export default component$(({ update$, actionList }: AProps) => {
                 `}
               for={act}
               onClick$={() => {
-                const _actionList: string[] = Object.assign([], actionList);
+                const _actionList: string[] = Object.assign([], actionList)
                 if (!actionList.includes(act)) {
                   // Add
-                  _actionList.push(act);
+                  _actionList.push(act)
                 } else {
                   // Remove
-                  _actionList.splice(_actionList.indexOf(act), 1);
+                  _actionList.splice(_actionList.indexOf(act), 1)
                 }
-                if (update$) update$(_actionList);
+                if (update$) update$(_actionList)
               }}
             >
               {act}
             </label>
           </div>
-        );
+        )
       })}
     </div>
-  );
-});
+  )
+})
